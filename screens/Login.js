@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchabelOpasity, StatusBar, Alert } from "react-native";
-// import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../config/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../config/firebase";
 
 const backImage = require("../assets/backImage.png");
 
@@ -22,6 +22,45 @@ export default function Login({ navigation }) {
     <View style={styles.container}>
       <Image source={backImage} style={styles.backImage} />
       <View style={styles.whiteSheet} />
+      <SafeAreaView style={styles.form}>
+        <Text style={styles.title}>Login</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter email"
+          autoCapitalize="none"
+          keyboardType="email-address"
+          textContentType="emailAddress"
+          autoFocus={true}
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter password"
+          autoCapitalize="none"
+          autoCorrect={false}
+          secureTextEntry={true}
+          textContentType="password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+        />
+        <TouchabelOpasity
+          style={styles.button} onPress={onHandleLogin}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              color: '#fff',
+              fontSize: 10
+            }}
+          >Log In</Text>
+        </TouchabelOpasity>
+        <View style={{marginTop: 20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
+          <Text style={{color: 'gray', fontWeight: 600, fontSize: 14}}>Don't have an account?</Text>
+          <TouchabelOpasity onPress={() => navigation.navigate("Signup")}>
+            <Text style={{fontWeight: 'bold',color: '#fff',fontSize: 10}}>Sign Up</Text>
+          </TouchabelOpasity>
+        </View>
+      </SafeAreaView>
     </View>
   )
 }
