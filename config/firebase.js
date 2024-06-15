@@ -5,13 +5,13 @@ import Constants from 'expo-constants';
 
 // firecase config
 const firebaseConfig = {
-  apiKey: Constants.manifest.extra.apiKey,
-  authDomain: Constants.manifest.extra.authDomain,
-  projectId: Constants.manifest.extra.projectId,
-  storageBucket: Constants.manifest.storageBucket,
-  messagingSenderId: Constants.manifest.messagingSenderId,
-  appId: Constants.manifest.extra.appId,
-  databaseURL: Constants.manifest.extra.databaseURL
+  apiKey: Constants.expoConfig.extra.apiKey,
+  authDomain: Constants.expoConfig.extra.authDomain,
+  projectId: Constants.expoConfig.extra.projectId,
+  storageBucket: Constants.expoConfig.storageBucket,
+  messagingSenderId: Constants.expoConfig.messagingSenderId,
+  appId: Constants.expoConfig.extra.appId,
+  databaseURL: Constants.expoConfig.extra.databaseURL
 };
 
 // initialize fireBase
